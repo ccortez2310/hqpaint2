@@ -8,8 +8,8 @@ import contact from './schemas/contact'
 import home from './schemas/home'
 import simpleBlockContent from './schemas/simpleBlockContent'
 import testimonial from './schemas/testimonial'
-import faq from './schemas/faq'
 import about from './schemas/about'
+import slider from './schemas/slider'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
    types: [
@@ -21,7 +21,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
       contact,
       home,
       testimonial,
-      faq,
       about,
+      slider,
    ],
 }

@@ -10,7 +10,7 @@ const Footer = async () => {
    const contact: Contact = await client.fetch(query)
 
    return (
-      <footer className="mt-auto w-full bg-background px-4 lg:px-6 ">
+      <footer className="mt-auto w-full bg-background px-4 lg:px-6 pt-10">
          <div className="max-w-screen-xl mx-auto space-y-10">
             <div className="flex justify-center items-center space-x-3">
                <Logo />

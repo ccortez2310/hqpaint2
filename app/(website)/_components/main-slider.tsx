@@ -17,7 +17,7 @@ type MainSliderProps = {
 
 const MainSlider: FC<MainSliderProps> = ({ images }) => {
    const plugin = React.useRef(
-      Autoplay({ delay: 5000, stopOnInteraction: true }),
+      Autoplay({ delay: 2000, stopOnInteraction: false }),
    )
 
    return (
@@ -35,16 +35,16 @@ const MainSlider: FC<MainSliderProps> = ({ images }) => {
                      <Image
                         src={image}
                         alt="slider"
-                        className="object-cover"
                         fill
                         loading="lazy"
+                        className="object-cover object-center w-full h-full"
                      />
                   </div>
                </CarouselItem>
             ))}
          </CarouselContent>
-         <CarouselPrevious className="left-5 hidden group-hover:flex" />
-         <CarouselNext className="right-5 hidden group-hover:flex" />
+         <CarouselPrevious className="left-5 hidden group-hover:flex hover:bg-primary/80 hover:text-white" />
+         <CarouselNext className="right-5 hidden group-hover:flex hover:bg-primary/80 hover:text-white" />
       </Carousel>
    )
 }

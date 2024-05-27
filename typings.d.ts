@@ -86,6 +86,12 @@ interface Service extends Base {
    published: boolean
 }
 
+interface Slider extends Base {
+   title: string
+   image: Image
+   published: boolean
+}
+
 interface Project extends Base {
    title: string
    service: SimpleService
@@ -121,36 +127,14 @@ interface Home extends Base {
    section1Title: string
    section1Subtitle: string
    section1Content: Block
-   section1Image1: Image
-   section1Image2: Image
-
-   section2Title: string
-   section2Content: string
-   section2Projects: number
-   section2Services: number
-   section2Customers: number
-
-   section3Title: string
-   section3Content: string
-
-   section4Title: string
-   section4Content: string
-
-   section5Title: string
-   section5Content: string
-   section5Item1Title: string
-   section5Item1Content: string
-   section5Item2Title: string
-   section5Item2Content: string
-   section5Item3Title: string
-   section5Item3Content: string
-   section5Image: Image
+   section1Image: Image
 }
 
 interface Testimonial extends Base {
    name: string
    comment: string
    photo: Image
+   rating: string
    published: boolean
 }
 
@@ -174,11 +158,6 @@ interface SEO extends Base {
    contactTitle: string
    contactDescription: string
    contactImage: Image | null
-}
-
-interface FAQ extends Base {
-   question: string
-   response: Block
 }
 
 interface NextImage {
