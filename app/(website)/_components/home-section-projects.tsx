@@ -1,5 +1,5 @@
 'use client'
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import _ from 'lodash'
 
 import Lightbox from 'yet-another-react-lightbox'
@@ -28,7 +28,22 @@ const HomeSectionProjects: FC<HomeSectionProjectsProps> = ({ projects }) => {
    const [images, setImages] = useState<NextImage[]>([])
    const [open, setOpen] = useState(false)
 
-   const plugin = React.useRef(Autoplay({ delay: 4000, stopOnHover: true }))
+   const autoplayInstance = React.useRef(
+      Autoplay({
+         delay: 3500,
+         stopOnInteraction: true,
+         playOnInit: true,
+      }),
+   )
+
+   useEffect(() => {
+      autoplayInstance.current = Autoplay({
+         delay: 3500,
+         stopOnInteraction: true,
+         playOnInit: true,
+      })
+   }, [])
+
    return (
       <>
          <section className="bg-background py-8 lg:py-16 px-4 lg:px-6">
@@ -48,10 +63,11 @@ const HomeSectionProjects: FC<HomeSectionProjectsProps> = ({ projects }) => {
                   opts={{
                      align: 'start',
                      loop: true,
+                     skipSnaps: true,
                   }}
-                  plugins={[plugin.current]}
-                  onMouseEnter={plugin.current.stop}
-                  onMouseLeave={plugin.current.reset}
+                  plugins={[autoplayInstance.current]}
+                  onMouseEnter={autoplayInstance.current.stop}
+                  onMouseLeave={autoplayInstance.current.play}
                   className="w-full py-5 bg-background"
                >
                   <CarouselContent className="-ml-4">
@@ -71,8 +87,8 @@ const HomeSectionProjects: FC<HomeSectionProjectsProps> = ({ projects }) => {
                         </CarouselItem>
                      ))}
                   </CarouselContent>
-                  <CarouselPrevious className="hover:bg-primary/80 hover:text-white" />
-                  <CarouselNext className="hover:bg-primary/80 hover:text-white" />
+                  <CarouselPrevious className="left-5 hover:bg-primary/80 hover:text-white" />
+                  <CarouselNext className="right-5 hover:bg-primary/80 hover:text-white" />
                </Carousel>
             </div>
          </section>

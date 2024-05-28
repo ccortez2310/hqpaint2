@@ -1,5 +1,5 @@
 'use client'
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import {
    Carousel,
    CarouselContent,
@@ -16,17 +16,29 @@ type MainSliderProps = {
 }
 
 const MainSlider: FC<MainSliderProps> = ({ images }) => {
-   const plugin = React.useRef(
-      Autoplay({ delay: 2000, stopOnInteraction: false }),
+   const autoplayInstance = React.useRef(
+      Autoplay({
+         delay: 3500,
+         stopOnInteraction: true,
+         playOnInit: true,
+      }),
    )
+
+   useEffect(() => {
+      autoplayInstance.current = Autoplay({
+         delay: 3500,
+         stopOnInteraction: true,
+         playOnInit: true,
+      })
+   }, [])
 
    return (
       <Carousel
          className="w-full group"
          opts={{ align: 'start', loop: true }}
-         plugins={[plugin.current]}
-         onMouseEnter={plugin.current.stop}
-         onMouseLeave={plugin.current.reset}
+         plugins={[autoplayInstance.current]}
+         onMouseEnter={autoplayInstance.current.stop}
+         onMouseLeave={autoplayInstance.current.play}
       >
          <CarouselContent>
             {images.map((image, index) => (

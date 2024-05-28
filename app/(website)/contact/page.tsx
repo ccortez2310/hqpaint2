@@ -78,7 +78,7 @@ const Page = async () => {
                         </h3>
                         <a
                            href={`mailto:${contact.email}`}
-                           className="text-lg sm:text-xl font-semibold block hover:underline mt-2 hover:text-blue-800"
+                           className="text-lg sm:text-xl font-semibold inline-block hover:underline mt-2 hover:text-blue-800"
                         >
                            {contact.email}
                         </a>
@@ -90,14 +90,14 @@ const Page = async () => {
                         </h3>
                         <a
                            href={`tel:${contact.phone1}`}
-                           className="text-lg sm:text-xl font-semibold block hover:underline mt-2 hover:text-blue-800"
+                           className="text-lg sm:text-xl font-semibold mt-2 inline-block hover:underline hover:text-blue-800"
                         >
                            {contact.phone1}
                         </a>
-
+                        <br />
                         <a
                            href={`tel:${contact.phone2}`}
-                           className="text-lg sm:text-xl font-semibold block hover:underline mt-2 hover:text-blue-800"
+                           className="text-lg sm:text-xl font-semibold mt-2 inline-block hover:underline hover:text-blue-800"
                         >
                            {contact.phone2}
                         </a>
