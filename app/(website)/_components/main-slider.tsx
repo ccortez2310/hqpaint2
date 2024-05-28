@@ -43,7 +43,7 @@ const MainSlider: FC<MainSliderProps> = ({ images }) => {
          <CarouselContent>
             {images.map((image, index) => (
                <CarouselItem key={index}>
-                  <div className="relative h-[500px] xl:h-[600px]">
+                  <div className="relative h-[400px] xl:h-[600px]">
                      <Image
                         src={image}
                         alt="slider"

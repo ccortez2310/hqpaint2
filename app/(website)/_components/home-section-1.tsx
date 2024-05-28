@@ -29,7 +29,7 @@ const HomeSection1: FC<HomeSection1Props> = ({ home }) => {
                </div>
                <div className="mt-5 animate-in slide-in-from-bottom delay-150 duration-500">
                   <Button asChild>
-                     <Link href="/about">Knoew more about US</Link>
+                     <Link href="/about">Know more about US</Link>
                   </Button>
                </div>
             </div>
