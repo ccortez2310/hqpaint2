@@ -20,9 +20,15 @@ const HomeSectionServices: FC<HomeSectionServicesProps> = ({ services }) => {
    return (
       <section className="bg-background py-8 lg:py-16 px-4 lg:px-6 mt-10 lg:mt-16">
          <div className="mx-auto max-w-screen-lg text-center sm:text-lg">
-            <h2 className="text-4xl lg:text-5xl tracking-tight font-extrabold text-foreground animate-in fade-in zoom-in delay-150 duration-500">
-               Our Services
+            <h2 className="text-4xl lg:text-5xl tracking-tight font-extrabold text-foreground animate-in slide-in-from-bottom delay-150 duration-500">
+               Services
             </h2>
+            <p className="text-gray-600 dark:text-gray-400 mt-5 animate-in slide-in-from-bottom delay-150 duration-500">
+               Take a look at the services We&apos;ve provided.{' '}
+               <span className="hidden lg:inline">
+                  Click on a service to view more details.
+               </span>
+            </p>
          </div>
          <div className="mx-auto max-w-screen-xl mt-10 animate-in slide-in-from-bottom delay-150 duration-500">
             <Carousel

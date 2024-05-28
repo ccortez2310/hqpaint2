@@ -53,11 +53,19 @@ const Page = async () => {
             <Breadcrumbs links={breadcrumbs} />
 
             <div className="mt-8 pb-16">
-               <h1 className="text-center text-4xl lg:text-5xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                  Services
-               </h1>
+               <div className="mx-auto max-w-screen-lg text-center sm:text-lg">
+                  <h1 className="text-4xl lg:text-5xl tracking-tight font-extrabold text-foreground animate-in slide-in-from-bottom delay-150 duration-500">
+                     Services
+                  </h1>
+                  <p className="text-gray-600 dark:text-gray-400 mt-5 animate-in slide-in-from-bottom delay-150 duration-500">
+                     Take a look at the services We&apos;ve provided.{' '}
+                     <span className="hidden lg:inline">
+                        Click on a service to view more details.
+                     </span>
+                  </p>
+               </div>
 
-               <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+               <div className="mt-10 lg:mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 animate-in slide-in-from-bottom delay-150 duration-500">
                   {services.map((service: Service) => (
                      <ServiceCard service={service} key={service._id} />
                   ))}
