@@ -23,6 +23,7 @@
       "next": "14.0.3",
       "next-sanity": "^5.5.10",
       "next-themes": "^0.2.1",
+      "nodemailer": "^6.9.13",
       "react": "^18",
       "react-dom": "^18",
       "react-photo-album": "^2.3.1",
@@ -33,6 +34,7 @@
       "yet-another-react-lightbox": "^3.17.5"
    },
    "devDependencies": {
+      "@tailwindcss/forms": "^0.5.7",
       "@types/node": "^20",
       "@types/react": "^18",
       "@types/react-dom": "^18",

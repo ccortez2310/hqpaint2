@@ -73,4 +73,9 @@
   body {
     @apply bg-background text-foreground;
   }
+
+}
+
+.input {
+  @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-800 focus:ring-blue-800 bg-background dark:border-gray-600;
 }
