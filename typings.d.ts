@@ -120,14 +120,14 @@ interface About extends Base {
 }
 
 interface Home extends Base {
-   heroTitle: string
-   heroContent: string
-   heroImage: Image
-
    section1Title: string
    section1Subtitle: string
    section1Content: Block
    section1Image: Image
+
+   section2Title: string
+   section2Content: Block
+   section2Image: Image
 }
 
 interface Testimonial extends Base {

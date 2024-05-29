@@ -6,13 +6,6 @@ export default defineType({
    type: 'document',
    fieldsets: [
       {
-         name: 'hero',
-         title: 'Hero Section',
-         options: {
-            collapsible: true,
-         },
-      },
-      {
          name: 'section1',
          title: 'Section 1',
          options: {
@@ -21,29 +14,13 @@ export default defineType({
       },
       {
          name: 'section2',
-         title: 'Section 2 (Metrics)',
+         title: 'Section 2',
          options: {
             collapsible: true,
          },
       },
    ],
    fields: [
-      // Hero
-      defineField({
-         name: 'heroTitle',
-         title: 'Title',
-         type: 'string',
-         fieldset: 'hero',
-         validation: (Rule) => Rule.required(),
-      }),
-      defineField({
-         name: 'heroContent',
-         title: 'Content',
-         type: 'text',
-         fieldset: 'hero',
-         validation: (Rule) => Rule.required(),
-      }),
-
       // Section 1
       defineField({
          name: 'section1Title',
@@ -71,6 +48,32 @@ export default defineType({
          title: 'Image',
          type: 'image',
          fieldset: 'section1',
+         options: {
+            hotspot: true,
+         },
+         validation: (Rule) => Rule.required(),
+      }),
+
+      // Section 2
+      defineField({
+         name: 'section2Title',
+         title: 'Title',
+         type: 'string',
+         fieldset: 'section2',
+         validation: (Rule) => Rule.required(),
+      }),
+      defineField({
+         name: 'section2Content',
+         title: 'Content',
+         type: 'simpleBlockContent',
+         fieldset: 'section2',
+         validation: (Rule) => Rule.required(),
+      }),
+      defineField({
+         name: 'section2Image',
+         title: 'Image',
+         type: 'image',
+         fieldset: 'section2',
          options: {
             hotspot: true,
          },

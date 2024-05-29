@@ -46,7 +46,7 @@ const HomeSectionProjects: FC<HomeSectionProjectsProps> = ({ projects }) => {
 
    return (
       <>
-         <section className="bg-background py-8 lg:py-16 px-4 lg:px-6">
+         <section className="bg-gray-50 dark:bg-background py-8 lg:py-16 px-4 lg:px-6">
             <div className="mx-auto max-w-screen-lg text-center sm:text-lg">
                <h2 className="text-4xl lg:text-5xl tracking-tight font-extrabold text-foreground animate-in slide-in-from-bottom delay-150 duration-500">
                   Projects

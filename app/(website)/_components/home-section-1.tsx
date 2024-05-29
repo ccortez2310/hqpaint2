@@ -15,7 +15,7 @@ const HomeSection1: FC<HomeSection1Props> = ({ home }) => {
       <section className="bg-background py-8 lg:py-16 px-4 lg:px-6 mt-10 lg:mt-16">
          <div className="mx-auto max-w-screen-xl grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
-               <h2 className="text-2xl md:text-3xl font-light animate-in slide-in-from-bottom delay-150 duration-500">
+               <h2 className="text-2xl md:text-3xl font-light animate-in slide-in-from-bottom delay-150 duration-500 uppercase">
                   {home.section1Title}
                </h2>
                <h3 className="text-xl md:text-2xl font-semibold mt-5 animate-in slide-in-from-bottom delay-150 duration-500">

@@ -8,6 +8,7 @@ import HomeSectionServices from './_components/home-section-services'
 import HomeSectionTestimonial from './_components/home-section-testimonial'
 import { ContactBanner } from './_components/contact-banner'
 import HomeSectionProjects from './_components/home-section-projects'
+import HomeSection2 from './_components/home-section-2'
 
 const domain = process.env.NEXT_PUBLIC_APP_DOMAIN
 
@@ -63,6 +64,9 @@ export default async function HomePage() {
 
          {/* Section 1 */}
          <HomeSection1 home={home} />
+
+         {/* Section 2 */}
+         <HomeSection2 home={home} />
 
          {/* Services Section */}
          <HomeSectionServices services={services} />
