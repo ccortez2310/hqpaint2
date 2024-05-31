@@ -7,7 +7,7 @@ const font = Inter({ subsets: ['latin'] })
 
 export const metadata = {
    title: {
-      template: '%s - HQ Paint General Construction',
+      template: '%s - HQ Paint General Construction LLC',
       default: 'HQ Paint General Construction',
    },
 }
