@@ -14,14 +14,28 @@ export default defineType({
       },
       {
          name: 'section2',
-         title: 'Section 2 (Mission, Vision and Values)',
+         title: 'Section 2 (Mission)',
          options: {
             collapsible: true,
          },
       },
       {
          name: 'section3',
-         title: 'Section 3',
+         title: 'Section 3 (Vision)',
+         options: {
+            collapsible: true,
+         },
+      },
+      {
+         name: 'section4',
+         title: 'Section 4 (Values)',
+         options: {
+            collapsible: true,
+         },
+      },
+      {
+         name: 'section5',
+         title: 'Section 5 (Our Team)',
          options: {
             collapsible: true,
          },
@@ -62,45 +76,68 @@ export default defineType({
          validation: (Rule) => Rule.required().error('Please add a mission'),
       }),
       defineField({
+         name: 'missionImage',
+         title: 'Image',
+         type: 'image',
+         options: {
+            hotspot: true,
+         },
+         fieldset: 'section2',
+         validation: (Rule) => Rule.required(),
+      }),
+      //Section 3
+      defineField({
          name: 'vision',
          title: 'Vision',
          type: 'text',
-         fieldset: 'section2',
+         fieldset: 'section3',
          validation: (Rule) => Rule.required().error('Please add a vision'),
       }),
       defineField({
-         name: 'values',
-         title: 'Values',
-         type: 'array',
-         fieldset: 'section2',
-         of: [{ type: 'string' }],
-         validation: (Rule) => Rule.required().error('Please add some values'),
-      }),
-
-      //Section 3
-
-      defineField({
-         name: 'section2Title',
-         title: 'Title',
-         type: 'string',
-         fieldset: 'section3',
-         validation: (Rule) => Rule.required(),
-      }),
-      defineField({
-         name: 'section2Content',
-         title: 'Content',
-         type: 'simpleBlockContent',
-         fieldset: 'section3',
-         validation: (Rule) => Rule.required(),
-      }),
-      defineField({
-         name: 'section2Image',
+         name: 'visionImage',
          title: 'Image',
          type: 'image',
          options: {
             hotspot: true,
          },
          fieldset: 'section3',
+         validation: (Rule) => Rule.required(),
+      }),
+
+      //Section 4
+      defineField({
+         name: 'values',
+         title: 'Values',
+         type: 'array',
+         fieldset: 'section4',
+         of: [{ type: 'string' }],
+         validation: (Rule) => Rule.required().error('Please add some values'),
+      }),
+
+      //Section 5
+
+      defineField({
+         name: 'section5Title',
+         title: 'Title',
+         type: 'string',
+         fieldset: 'section5',
+         validation: (Rule) => Rule.required(),
+      }),
+      defineField({
+         name: 'section5Content',
+         title: 'Content',
+         type: 'simpleBlockContent',
+         fieldset: 'section5',
+         validation: (Rule) => Rule.required(),
+      }),
+      defineField({
+         name: 'section5Image',
+         title: 'Image',
+         type: 'image',
+         options: {
+            hotspot: true,
+         },
+         fieldset: 'section5',
          validation: (Rule) => Rule.required(),
       }),
    ],

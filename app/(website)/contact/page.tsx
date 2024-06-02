@@ -4,7 +4,6 @@ import { Metadata } from 'next'
 import { groq } from 'next-sanity'
 import React from 'react'
 import ContactForm from '../_components/contact-form'
-import { Mail, Phone } from 'lucide-react'
 
 const domain = process.env.NEXT_PUBLIC_APP_DOMAIN
 

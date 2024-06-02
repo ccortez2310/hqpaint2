@@ -111,12 +111,14 @@ interface About extends Base {
    section1Image: Image
 
    mission: string
+   missionImage: Image
    vision: string
+   visionImage: Image
    values: string[]
 
-   section2Title: string
-   section2Content: Block
-   section2Image: Image
+   section5Title: string
+   section5Content: Block
+   section5Image: Image
 }
 
 interface Home extends Base {
