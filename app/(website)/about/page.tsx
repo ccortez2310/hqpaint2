@@ -41,7 +41,7 @@ const Page = async () => {
 
    const breadcrumbs = [
       { name: 'Home', href: '/' },
-      { name: 'Company', href: '/about' },
+      { name: 'About US', href: '/about' },
    ]
 
    return (

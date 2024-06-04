@@ -4,7 +4,7 @@ const navLinks = [
       href: '/',
    },
    {
-      title: 'Company',
+      title: 'About US',
       href: '/about',
    },
    {
