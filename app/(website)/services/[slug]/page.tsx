@@ -12,6 +12,8 @@ import ImageGallery from '../../_components/image-gallery'
 
 const domain = process.env.NEXT_PUBLIC_APP_DOMAIN
 
+export const revalidate = 0
+
 type PageProps = {
    params: { slug: string }
 }
