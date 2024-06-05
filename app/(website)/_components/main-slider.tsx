@@ -12,7 +12,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import Image from 'next/image'
 
 type MainSliderProps = {
-   images: string[]
+   images: SliderItem[]
 }
 
 const MainSlider: FC<MainSliderProps> = ({ images }) => {
@@ -44,13 +44,31 @@ const MainSlider: FC<MainSliderProps> = ({ images }) => {
             {images.map((image, index) => (
                <CarouselItem key={index}>
                   <div className="relative h-[400px] xl:h-[600px]">
-                     <Image
-                        src={image}
-                        alt="slider"
-                        fill
-                        loading="lazy"
-                        className="object-cover object-center w-full h-full"
-                     />
+                     {image.responsiveImage !== '' && (
+                        <Image
+                           src={image.responsiveImage}
+                           alt="slider"
+                           fill
+                           className={`w-full ${
+                              image.mainImage === ''
+                                 ? 'block'
+                                 : 'block md:hidden'
+                           }`}
+                        />
+                     )}
+
+                     {image.mainImage !== '' && (
+                        <Image
+                           src={image.mainImage}
+                           alt="slider"
+                           fill
+                           className={`w-full ${
+                              image.responsiveImage === ''
+                                 ? 'block'
+                                 : 'hidden md:block'
+                           }`}
+                        />
+                     )}
                   </div>
                </CarouselItem>
             ))}

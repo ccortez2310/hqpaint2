@@ -88,8 +88,14 @@ interface Service extends Base {
 
 interface Slider extends Base {
    title: string
-   image: Image
+   mainImage: Image
+   responsiveImage: Image
    published: boolean
+}
+
+interface SliderItem {
+   mainImage: string
+   responsiveImage: string
 }
 
 interface Project extends Base {

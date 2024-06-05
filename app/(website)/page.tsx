@@ -53,9 +53,10 @@ export default async function HomePage() {
    const testimonials: Testimonial[] = await client.fetch(testimonialsQuery)
    const sliders: Slider[] = await client.fetch(slidersQuery)
 
-   const images: any[] = sliders.map((slider) =>
-      urlForImage(slider.image).url(),
-   )
+   const images: SliderItem[] = sliders.map((slider) => ({
+      mainImage: slider.mainImage !== undefined ? urlForImage(slider.mainImage).url(): "",
+      responsiveImage: slider.responsiveImage !== undefined ? urlForImage(slider.responsiveImage).url(): "",
+   }))
 
    return (
       <>

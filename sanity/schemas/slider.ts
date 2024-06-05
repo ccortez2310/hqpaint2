@@ -14,13 +14,23 @@ export default defineType({
          validation: (Rule) => Rule.required().error('Please add the title'),
       }),
       defineField({
-         name: 'image',
-         title: 'Image',
+         name: 'mainImage',
+         title: 'Main Image',
          type: 'image',
          options: {
             hotspot: true,
          },
-         validation: (Rule) => Rule.required().error('Please add a image'),
+         validation: (Rule) => Rule.required().error('Please add a main image'),
+      }),
+      defineField({
+         name: 'responsiveImage',
+         title: 'Responsive Image',
+         type: 'image',
+         options: {
+            hotspot: true,
+         },
+         validation: (Rule) =>
+            Rule.required().error('Please add a responsive image'),
       }),
       defineField({
          name: 'published',
