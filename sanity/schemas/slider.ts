@@ -14,23 +14,33 @@ export default defineType({
          validation: (Rule) => Rule.required().error('Please add the title'),
       }),
       defineField({
-         name: 'mainImage',
-         title: 'Main Image',
-         type: 'image',
-         options: {
-            hotspot: true,
-         },
-         validation: (Rule) => Rule.required().error('Please add a main image'),
+         name: 'description',
+         title: 'Description',
+         type: 'text',
+         validation: (Rule) =>
+            Rule.required().error('Please add the description'),
       }),
       defineField({
-         name: 'responsiveImage',
-         title: 'Responsive Image',
+         name: 'linkText',
+         title: 'Link Text',
+         type: 'string',
+         validation: (Rule) =>
+            Rule.required().error('Please add the link text'),
+      }),
+      defineField({
+         name: 'linkUrl',
+         title: 'Link Url',
+         type: 'string',
+         validation: (Rule) => Rule.required().error('Please add the link url'),
+      }),
+      defineField({
+         name: 'image',
+         title: 'Image',
          type: 'image',
          options: {
             hotspot: true,
          },
-         validation: (Rule) =>
-            Rule.required().error('Please add a responsive image'),
+         validation: (Rule) => Rule.required().error('Please add a image'),
       }),
       defineField({
          name: 'published',

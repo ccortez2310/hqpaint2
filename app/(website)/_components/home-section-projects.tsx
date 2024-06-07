@@ -68,7 +68,7 @@ const HomeSectionProjects: FC<HomeSectionProjectsProps> = ({ projects }) => {
                   plugins={[autoplayInstance.current]}
                   onMouseEnter={autoplayInstance.current.stop}
                   onMouseLeave={autoplayInstance.current.play}
-                  className="w-full py-5 bg-background"
+                  className="w-full py-5 bg-gray-50 dark:bg-background"
                >
                   <CarouselContent className="-ml-4">
                      {projects.map((project, index) => (

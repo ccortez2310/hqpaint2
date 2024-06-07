@@ -53,15 +53,10 @@ export default async function HomePage() {
    const testimonials: Testimonial[] = await client.fetch(testimonialsQuery)
    const sliders: Slider[] = await client.fetch(slidersQuery)
 
-   const images: SliderItem[] = sliders.map((slider) => ({
-      mainImage: slider.mainImage !== undefined ? urlForImage(slider.mainImage).url(): "",
-      responsiveImage: slider.responsiveImage !== undefined ? urlForImage(slider.responsiveImage).url(): "",
-   }))
-
    return (
       <>
          {/* Slider section  */}
-         <MainSlider images={images} />
+         <MainSlider sliders={sliders} />
 
          {/* Section 1 */}
          <HomeSection1 home={home} />
