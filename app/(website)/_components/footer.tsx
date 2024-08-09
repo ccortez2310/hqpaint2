@@ -12,6 +12,12 @@ const Footer = async () => {
    return (
       <footer className="mt-auto w-full bg-background px-4 lg:px-6 pt-10">
          <div className="max-w-screen-xl mx-auto space-y-10">
+            <div className="font-medium text-base md:text-lg text-gray-600 dark:text-gray-400">
+               <div className="flex justify-center">Licensed and bonded</div>
+               <div className="text-primary dark:text-gray-400 flex justify-center">
+                  MHIC: #159620
+               </div>
+            </div>
             <div className="flex justify-center items-center space-x-3">
                <Logo />
                <div className="font-medium text-base md:text-lg text-gray-600 dark:text-gray-400">
