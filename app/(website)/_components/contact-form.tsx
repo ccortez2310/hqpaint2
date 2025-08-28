@@ -1,6 +1,7 @@
 'use client'
 import { RefreshCw } from 'lucide-react'
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useRef } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 type ContactFormProps = {
    services: any[]
@@ -10,6 +11,7 @@ let contactErrors = {
    name: '',
    email: '',
    message: '',
+   captcha: '',
 }
 
 const ContactForm: FC<ContactFormProps> = ({ services }) => {
@@ -22,6 +24,7 @@ const ContactForm: FC<ContactFormProps> = ({ services }) => {
       type: 'success',
       open: false,
    })
+   const recaptchaRef = useRef<ReCAPTCHA>(null)
 
    const [errors, setErrors] = useState(contactErrors)
 
@@ -30,12 +33,16 @@ const ContactForm: FC<ContactFormProps> = ({ services }) => {
          name: '',
          email: '',
          message: '',
+         captcha: '',
       }
 
       setName('')
       setEmail('')
       setMessage('')
       setSelectedServices([])
+      if (recaptchaRef.current) {
+         recaptchaRef.current.reset()
+      }
       setErrors(contactErrors)
    }
 
@@ -46,6 +53,7 @@ const ContactForm: FC<ContactFormProps> = ({ services }) => {
          name: '',
          email: '',
          message: '',
+         captcha: '',
       }
 
       //validate required fields
@@ -79,6 +87,12 @@ const ContactForm: FC<ContactFormProps> = ({ services }) => {
          isValid = false
       }
 
+      const captchaValue = recaptchaRef.current?.getValue()
+      if (!captchaValue) {
+         contactErrors.captcha = 'Please verify that you are not a robot'
+         isValid = false
+      }
+
       if (!isValid) {
          setErrors(contactErrors)
          return
@@ -89,6 +103,7 @@ const ContactForm: FC<ContactFormProps> = ({ services }) => {
          email,
          message,
          services: selectedServices,
+         captchaToken: captchaValue,
       }
 
       setSending(true)
@@ -101,14 +116,19 @@ const ContactForm: FC<ContactFormProps> = ({ services }) => {
          },
          body: JSON.stringify(data),
       })
-         .then((res) => {
+         .then(async (res) => {
             setSending(false)
             if (res.status === 200) {
                resetForm()
                setResult({ type: 'success', open: true })
+            } else {
+               const errorData = await res.json().catch(() => ({}))
+               console.error('API Error:', res.status, errorData)
+               setResult({ type: 'error', open: true })
             }
          })
-         .catch(() => {
+         .catch((error) => {
+            console.error('Network Error:', error)
             setSending(false)
             setResult({ type: 'error', open: true })
          })
@@ -207,6 +227,16 @@ const ContactForm: FC<ContactFormProps> = ({ services }) => {
             ></textarea>
             {errors.message.length > 0 && (
                <div className="text-red-600 text-sm">{errors.message}</div>
+            )}
+         </div>
+         <div className="mt-5">
+            <ReCAPTCHA
+               ref={recaptchaRef}
+               sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+               theme="light"
+            />
+            {errors.captcha.length > 0 && (
+               <div className="text-red-600 text-sm mt-1">{errors.captcha}</div>
             )}
          </div>
          <div className="mt-5">

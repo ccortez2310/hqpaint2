@@ -1,8 +1,53 @@
 import { NextResponse } from 'next/server'
+
+async function verifyCaptcha(token: string) {
+   try {
+      const secretKey = process.env.RECAPTCHA_SECRET_KEY
+      
+      if (!secretKey) {
+         console.error('RECAPTCHA_SECRET_KEY is not set')
+         return false
+      }
+
+      const response = await fetch(
+         `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`,
+         {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/x-www-form-urlencoded',
+            },
+         }
+      )
+      
+      const data = await response.json()
+      console.log('reCAPTCHA verification result:', data)
+      
+      return data.success
+   } catch (error) {
+      console.error('Error verifying captcha:', error)
+      return false
+   }
+}
+
 export async function POST(req: Request) {
    const body = await req.json()
 
-   const { name, email, services, message } = body
+   const { name, email, services, message, captchaToken } = body
+
+   if (!captchaToken) {
+      return NextResponse.json(
+         { message: 'Captcha token is required' },
+         { status: 400 }
+      )
+   }
+
+   const isCaptchaValid = await verifyCaptcha(captchaToken)
+   if (!isCaptchaValid) {
+      return NextResponse.json(
+         { message: 'Invalid captcha' },
+         { status: 400 }
+      )
+   }
 
    const nodemailer = require('nodemailer')
 
