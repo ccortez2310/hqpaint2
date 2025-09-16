@@ -39,6 +39,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const Page = async () => {
    const about: About = await client.fetch(aboutQuery)
+   const contactQuery = groq`*[_type=='contact'][0]`
+   const contact: Contact = await client.fetch(contactQuery)
 
    const breadcrumbs = [
       { name: 'Home', href: '/' },
@@ -669,7 +671,7 @@ const Page = async () => {
          </section>
 
          {/* Contact Section */}
-         <ContactBanner />
+         <ContactBanner contact={contact} />
       </>
    )
 }

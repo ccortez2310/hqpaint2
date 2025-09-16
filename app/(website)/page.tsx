@@ -52,6 +52,8 @@ export default async function HomePage() {
    const projects: Project[] = await client.fetch(projectsQuery)
    const testimonials: Testimonial[] = await client.fetch(testimonialsQuery)
    const sliders: Slider[] = await client.fetch(slidersQuery)
+   const contactQuery = groq`*[_type=='contact'][0]`
+   const contact: Contact = await client.fetch(contactQuery)
 
    return (
       <>
@@ -74,7 +76,7 @@ export default async function HomePage() {
          <HomeSectionTestimonial testimonials={testimonials} />
 
          {/* Contact Section */}
-         <ContactBanner />
+         <ContactBanner contact={contact} />
       </>
    )
 }

@@ -3,7 +3,11 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Phone, Mail, Palette, ArrowRight } from 'lucide-react'
 
-export const ContactBanner = () => {
+type ContactBannerProps = {
+   contact?: Contact
+}
+
+export const ContactBanner = ({ contact }: ContactBannerProps) => {
    return (
       <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-cyan-600 py-16 lg:py-24 px-4 lg:px-6 overflow-hidden">
          {/* Background decorative elements */}
@@ -76,18 +80,22 @@ export const ContactBanner = () => {
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                      <h3 className="text-lg font-semibold text-white mb-4">Or contact us directly</h3>
                      <div className="space-y-3">
-                        <a href="tel:(555) 123-4567" className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors group">
-                           <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                              <Phone className="w-5 h-5" />
-                           </div>
-                           <span className="font-medium">(555) 123-4567</span>
-                        </a>
-                        <a href="mailto:info@hqpaint.com" className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors group">
-                           <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                              <Mail className="w-5 h-5" />
-                           </div>
-                           <span className="font-medium">info@hqpaint.com</span>
-                        </a>
+                        {contact?.phone1 && (
+                           <a href={`tel:${contact.phone1}`} className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors group">
+                              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                                 <Phone className="w-5 h-5" />
+                              </div>
+                              <span className="font-medium">{contact.phone1}</span>
+                           </a>
+                        )}
+                        {contact?.email && (
+                           <a href={`mailto:${contact.email}`} className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors group">
+                              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                                 <Mail className="w-5 h-5" />
+                              </div>
+                              <span className="font-medium">{contact.email}</span>
+                           </a>
+                        )}
                      </div>
                   </div>
                </div>
