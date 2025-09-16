@@ -2,6 +2,8 @@ import Footer from '@/app/(website)/_components/footer'
 import Navbar from '@/app/(website)/_components/navbar'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
+import { client } from '@/sanity/lib/client'
+import { groq } from 'next-sanity'
 
 const font = Inter({ subsets: ['latin'] })
 
@@ -12,11 +14,14 @@ export const metadata = {
    },
 }
 
-export default function WebsiteLayout({
+const contactQuery = groq`*[_type=='contact'][0]`
+
+export default async function WebsiteLayout({
    children,
 }: {
    children: React.ReactNode
 }) {
+   const contact: Contact = await client.fetch(contactQuery)
    return (
       <>
          <Script
@@ -35,7 +40,7 @@ export default function WebsiteLayout({
                 `}
          </Script>
          <div className={`${font.className} flex flex-col min-h-screen`}>
-            <Navbar />
+            <Navbar contact={contact} />
             <main>{children}</main>
             <Footer />
          </div>

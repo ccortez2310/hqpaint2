@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import MainSlider from './_components/main-slider'
+import HeroSection from './_components/hero-section'
 import { groq } from 'next-sanity'
 import { client } from '@/sanity/lib/client'
 import { urlForImage } from '@/sanity/lib/image'
@@ -55,8 +55,8 @@ export default async function HomePage() {
 
    return (
       <>
-         {/* Slider section  */}
-         <MainSlider sliders={sliders} />
+         {/* Hero section - Choose one option */}
+         <HeroSection home={home} />
 
          {/* Section 1 */}
          <HomeSection1 home={home} />

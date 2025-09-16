@@ -33,16 +33,33 @@ const HomeSectionTestimonial: FC<HomeSectionTestimonialProps> = ({
       })
    }, [])
    return (
-      <section className="bg-background py-8 lg:py-16 px-4 lg:px-6 mt-10 lg:mt-16">
-         <div className="mx-auto max-w-screen-lg text-center sm:text-lg">
-            <h2 className="text-4xl lg:text-5xl tracking-tight font-extrabold text-foreground animate-in slide-in-from-bottom delay-150 duration-500">
-               Testimonials
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 mt-5 animate-in slide-in-from-bottom delay-150 duration-500">
-               Know what our customers are saying about us.
-            </p>
+      <section className="relative bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-background py-16 lg:py-24 px-4 lg:px-6 overflow-hidden">
+         {/* Background decorative elements */}
+         <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-10 left-10 w-96 h-96 bg-blue-100/20 dark:bg-blue-900/10 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-cyan-100/20 dark:bg-cyan-900/10 rounded-full blur-3xl"></div>
          </div>
-         <div className="mx-auto max-w-screen-xl mt-10 animate-in slide-in-from-bottom delay-150 duration-500">
+
+         <div className="relative mx-auto max-w-screen-lg text-center">
+            <div className="space-y-4 animate-in slide-in-from-bottom delay-150 duration-700">
+               <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 rounded-full">
+                  <span className="text-sm font-medium text-blue-700 dark:text-blue-300 uppercase tracking-wide">
+                     Client Reviews
+                  </span>
+               </div>
+               
+               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700">
+                     Testimonials
+                  </span>
+               </h2>
+               
+               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                  Discover what our satisfied clients have to say about their experience with our professional services.
+               </p>
+            </div>
+         </div>
+         <div className="relative mx-auto max-w-screen-xl mt-16 animate-in slide-in-from-bottom delay-300 duration-700">
             <Carousel
                opts={{
                   align: 'start',
@@ -52,13 +69,13 @@ const HomeSectionTestimonial: FC<HomeSectionTestimonialProps> = ({
                plugins={[autoplayInstance.current]}
                onMouseEnter={autoplayInstance.current.stop}
                onMouseLeave={autoplayInstance.current.play}
-               className="w-full py-5 bg-background"
+               className="w-full"
             >
-               <CarouselContent className="-ml-4">
+               <CarouselContent className="-ml-6">
                   {testimonials.map((testimonial, index) => (
                      <CarouselItem
                         key={index}
-                        className="md:basis-1/2 lg:basis-1/3"
+                        className="md:basis-1/2 lg:basis-1/3 pl-6"
                      >
                         <div className="p-1">
                            <TestimonialCard
@@ -69,8 +86,8 @@ const HomeSectionTestimonial: FC<HomeSectionTestimonialProps> = ({
                      </CarouselItem>
                   ))}
                </CarouselContent>
-               <CarouselPrevious className="left-5 hover:bg-primary/80 hover:text-white" />
-               <CarouselNext className="right-5 hover:bg-primary/80 hover:text-white" />
+               <CarouselPrevious className="left-2 lg:left-8 w-12 h-12 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-slate-700/50 hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-600 hover:text-white hover:border-transparent transition-all duration-300 shadow-lg" />
+               <CarouselNext className="right-2 lg:right-8 w-12 h-12 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-slate-700/50 hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-600 hover:text-white hover:border-transparent transition-all duration-300 shadow-lg" />
             </Carousel>
          </div>
       </section>

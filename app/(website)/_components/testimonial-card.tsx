@@ -10,7 +10,7 @@ type TestimonialCardProps = {
 const TestimonialCard: FC<TestimonialCardProps> = ({ testimonial }) => {
    return (
       <div className="flex flex-col min-h-full bg-background rounded-2xl dark:border border-gray-700 shadow-lg h-full">
-         <div className="relative pt-10 px-5 bg-gradient-to-t from-primary to-gray-700 rounded-t-2xl">
+         <div className="relative pt-10 px-5 bg-gradient-to-t from-blue-600 to-cyan-600 rounded-t-2xl">
             <svg
                aria-hidden="true"
                width="105"
@@ -39,7 +39,6 @@ const TestimonialCard: FC<TestimonialCardProps> = ({ testimonial }) => {
                         style={{ color: 'transparent' }}
                      />
                   ) : (
-                     // eslint-disable-next-line @next/next/no-img-element
                      <img
                         className="object-cover w-14 h-14 rounded-full"
                         src={`https://ui-avatars.com/api/?name=${testimonial.name}&background=b2e7ff&color=0068fe`}

@@ -20,14 +20,15 @@ const ProjectsList: FC<ProjectsListProps> = ({ projects }) => {
    const [open, setOpen] = useState(false)
    return (
       <>
-         <div className="mt-10 lg:mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 animate-in slide-in-from-bottom delay-150 duration-500">
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-in slide-in-from-bottom delay-300 duration-700">
             {projects.map((project: Project) => (
-               <ProjectCard
-                  project={project}
-                  key={project._id}
-                  setImages={setImages}
-                  setOpen={setOpen}
-               />
+               <div key={project._id} className="h-[400px]">
+                  <ProjectCard
+                     project={project}
+                     setImages={setImages}
+                     setOpen={setOpen}
+                  />
+               </div>
             ))}
          </div>
          <Lightbox
